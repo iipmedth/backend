@@ -38,7 +38,8 @@ class AuthController extends Controller
     ])->withCookie($cookie);
   }
 
-  public function user(){
-    return 'Authenticated user';
+  public function user()
+  {
+      return Auth::user();
   }
 }
