@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Patient;
+use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
@@ -14,7 +15,9 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return Patient:all();
+        $patients = Patient::all();
+
+        return response()->json($patients);
     }
 
     /**
@@ -25,7 +28,17 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        return Patient::create($request->all());
+        $newPatient = new Patient([
+          $user_id = Auth::user()->id;
+          $name = $request->get('name'));
+          $gender = $request->get('gender'));
+          $date_of_birth = $request->get('date_of_birth'));
+          $instrument = $request->get('instrument'));
+        ]);
+
+        $newPatient->save();
+
+        return response()->json($newPatient);
     }
 
     /**
@@ -36,7 +49,9 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        return Patient:find($id);
+        $patient = Patient::findOrFail($id);
+
+        return response()->json($patient);
     }
 
     /**
@@ -49,9 +64,15 @@ class PatientController extends Controller
     public function update(Request $request, $id)
     {
         $patient = Patient::findOrFail($id);
-        $patient->update($request->all());
 
-        return $patient;
+        $patient->name = $request->get('name'));
+        $patient->gender = $request->get('gender'));
+        $patient->date_of_birth = $request->get('date_of_birth'));
+        $patient->instrument = $request->get('instrument'));
+
+        $patient->save();
+
+        return response()->json($patient);
     }
 
     /**
@@ -64,5 +85,7 @@ class PatientController extends Controller
     {
         $patient = Patient::findOrFail($id);
         $patient->delete();
+
+        return response()->json($patient::all());
     }
 }
