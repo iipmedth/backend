@@ -32,4 +32,8 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function patient()
+    {
+        return $this->hasOne(Patient::class, 'user_id', 'id');
+    }
 }

@@ -45,6 +45,11 @@ class AuthController extends Controller
       return Auth::user();
   }
 
+  public function patient()
+  {
+    return User::find(Auth::user()->id)->patient;
+  }
+
   public function logout()
   {
     $cookie = Cookie::forget('jwt');
