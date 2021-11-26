@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Patient;
 
 class PatientController extends Controller
 {
@@ -13,17 +14,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return Patient:all();
     }
 
     /**
@@ -34,7 +25,7 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Patient::create($request->all());
     }
 
     /**
@@ -45,18 +36,7 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return Patient:find($id);
     }
 
     /**
@@ -68,7 +48,10 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $patient = Patient::findOrFail($id);
+        $patient->update($request->all());
+
+        return $patient;
     }
 
     /**
@@ -79,6 +62,7 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $patient = Patient::findOrFail($id);
+        $patient->delete();
     }
 }
