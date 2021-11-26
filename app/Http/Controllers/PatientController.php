@@ -29,11 +29,11 @@ class PatientController extends Controller
     public function store(Request $request)
     {
         $newPatient = new Patient([
-          $user_id = Auth::user()->id;
-          $name = $request->get('name'));
-          $gender = $request->get('gender'));
-          $date_of_birth = $request->get('date_of_birth'));
-          $instrument = $request->get('instrument'));
+          'user_id' => $request->get('user_id'),
+          'name' => $request->get('name'),
+          'gender' => $request->get('gender'),
+          'date_of_birth' => $request->get('date_of_birth'),
+          'instrument' => $request->get('instrument'),
         ]);
 
         $newPatient->save();
@@ -65,10 +65,10 @@ class PatientController extends Controller
     {
         $patient = Patient::findOrFail($id);
 
-        $patient->name = $request->get('name'));
-        $patient->gender = $request->get('gender'));
-        $patient->date_of_birth = $request->get('date_of_birth'));
-        $patient->instrument = $request->get('instrument'));
+        $patient->name = $request->get('name');
+        $patient->gender = $request->get('gender');
+        $patient->date_of_birth = $request->get('date_of_birth');
+        $patient->instrument = $request->get('instrument');
 
         $patient->save();
 
