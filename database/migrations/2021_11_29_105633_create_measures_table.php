@@ -18,8 +18,6 @@ class CreateMeasuresTable extends Migration
             $table->unsignedBigInteger('patient_id');
             $table->string('hand');
             $table->string('gender');
-            $table->float('hand_lenght');
-
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients');
@@ -33,6 +31,11 @@ class CreateMeasuresTable extends Migration
      */
     public function down()
     {
+        Schema::table('measures', function($table)
+        {
+            $table->dropForeign('measures_patient_id_foreign');
+        });
+        
         Schema::dropIfExists('measures');
     }
 }
