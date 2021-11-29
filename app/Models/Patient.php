@@ -21,4 +21,9 @@ class Patient extends Model
     {
         return $this->belongsTo(User::class, 'id', 'user_id');
     }
+
+    public function measures()
+    {
+        return $this->hasMany(Measure::class, 'patient_id', 'id');
+    }
 }
