@@ -88,4 +88,10 @@ class PatientController extends Controller
 
         return response()->json($patient::all());
     }
+
+    public function measure($id, $hand)
+    {
+      return Patient::find($id)->measures->where('hand', '=', $hand)->first();
+    }
+
 }
