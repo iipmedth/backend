@@ -28,7 +28,29 @@ class MeasureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $newMeasure = new Measure([
+        'patient_id'  => $request->get('patient_id'),
+        'gender' => $request->get('gender'),
+        'hand' => $request->get('hand'),
+        'hand_length' => $request->get('hand_length'),
+        'hand_breadth' => $request->get('hand_breadth'),
+        'height_difference_1-2' => $request->get('height_difference_1-3'),
+        'height_difference_3-5' => $request->get('height_difference_3-5'),
+        'spread_1-2' => $request->get('spread_1-2')
+        'spread_1-3' => $request->get('spread_1-3')
+        'spread_1-4' => $request->get('spread_1-4')
+        'spread_1-5' => $request->get('spread_1-5')
+        'spread_2-3' => $request->get('spread_2-3')
+        'spread_2-4' => $request->get('spread_2-4')
+        'spread_2-5' => $request->get('spread_2-5')
+        'spread_3-4' => $request->get('spread_3-4')
+        'spread_3-5' => $request->get('spread_3-5')
+        'spread_4-5' => $request->get('spread_4-5')
+      ]);
+
+      $newPatient->save();
+
+      return response()->json($newPatient);
     }
 
     /**
