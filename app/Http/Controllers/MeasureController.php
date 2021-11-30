@@ -34,18 +34,18 @@ class MeasureController extends Controller
         'hand' => $request->get('hand'),
         'hand_length' => $request->get('hand_length'),
         'hand_breadth' => $request->get('hand_breadth'),
-        'height_difference_1-2' => $request->get('height_difference_1-3'),
-        'height_difference_3-5' => $request->get('height_difference_3-5'),
-        'spread_1-2' => $request->get('spread_1-2'),
-        'spread_1-3' => $request->get('spread_1-3'),
-        'spread_1-4' => $request->get('spread_1-4'),
-        'spread_1-5' => $request->get('spread_1-5'),
-        'spread_2-3' => $request->get('spread_2-3'),
-        'spread_2-4' => $request->get('spread_2-4'),
-        'spread_2-5' => $request->get('spread_2-5'),
-        'spread_3-4' => $request->get('spread_3-4'),
-        'spread_3-5' => $request->get('spread_3-5'),
-        'spread_4-5' => $request->get('spread_4-5'),
+        'height_difference_1_3' => $request->get('height_difference_1_3'),
+        'height_difference_3_5' => $request->get('height_difference_3_5'),
+        'spread_1_2' => $request->get('spread_1_2'),
+        'spread_1_3' => $request->get('spread_1_3'),
+        'spread_1_4' => $request->get('spread_1_4'),
+        'spread_1_5' => $request->get('spread_1_5'),
+        'spread_2_3' => $request->get('spread_2_3'),
+        'spread_2_4' => $request->get('spread_2_4'),
+        'spread_2_5' => $request->get('spread_2_5'),
+        'spread_3_4' => $request->get('spread_3_4'),
+        'spread_3_5' => $request->get('spread_3_5'),
+        'spread_4_5' => $request->get('spread_4_5'),
       ]);
 
       $newMeasure->save();
@@ -75,25 +75,24 @@ class MeasureController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $measure = Measure::findOrFail($measure);
+      $measure = Measure::findOrFail($id);
 
-      $measure->patient_id  => $request->get('patient_id');
-      $measure->gender => $request->get('gender');
-      $measure->hand => $request->get('hand');
-      $measure->hand_length => $request->get('hand_length');
-      $measure->hand_breadth => $request->get('hand_breadth');
-      $measure->height_difference_1-2 => $request->get('height_difference_1-3');
-      $measure->height_difference_3-5 => $request->get('height_difference_3-5');
-      $measure->spread_1-2 => $request->get('spread_1-2');
-      $measure->spread_1-3 => $request->get('spread_1-3');
-      $measure->spread_1-4 => $request->get('spread_1-4');
-      $measure->spread_1-5 => $request->get('spread_1-5');
-      $measure->spread_2-3 => $request->get('spread_2-3');
-      $measure->spread_2-4 => $request->get('spread_2-4');
-      $measure->spread_2-5 => $request->get('spread_2-5');
-      $measure->spread_3-4 => $request->get('spread_3-4');
-      $measure->spread_3-5 => $request->get('spread_3-5');
-      $measure->spread_4-5 => $request->get('spread_4-5');
+      $measure->gender = $request->get('gender');
+      $measure->hand = $request->get('hand');
+      $measure->hand_length = $request->get('hand_length');
+      $measure->hand_breadth = $request->get('hand_breadth');
+      $measure->height_difference_1_3 = $request->get('height_difference_1_3');
+      $measure->height_difference_3_5 = $request->get('height_difference_3_5');
+      $measure->spread_1_2 = $request->get('spread_1_2');
+      $measure->spread_1_3 = $request->get('spread_1_3');
+      $measure->spread_1_4 = $request->get('spread_1_4');
+      $measure->spread_1_5 = $request->get('spread_1_5');
+      $measure->spread_2_3 = $request->get('spread_2_3');
+      $measure->spread_2_4 = $request->get('spread_2_4');
+      $measure->spread_2_5 = $request->get('spread_2_5');
+      $measure->spread_3_4 = $request->get('spread_3_4');
+      $measure->spread_3_5 = $request->get('spread_3_5');
+      $measure->spread_4_5 = $request->get('spread_4_5');
 
       $measure->save();
 
