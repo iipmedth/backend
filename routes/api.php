@@ -22,6 +22,7 @@ Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
     Route::get('user/patient', [\App\Http\Controllers\AuthController::class, 'patient']);
+    Route::get('therapist/patients', [\App\Http\Controllers\TherapistController::class, 'patients']);
     Route::get('patient/{id}/measure/{hand}', [\App\Http\Controllers\PatientController::class, 'measure']);
     Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 
