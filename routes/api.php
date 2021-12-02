@@ -29,5 +29,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResources([
       'patients' => PatientController::class,
       'measures' => MeasureController::class,
+      'therapist' => TherapistController::class,
     ]);
 });
