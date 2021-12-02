@@ -16,7 +16,7 @@ class Therapist_of_patient extends Model
 
     public function therapist()
     {
-        return $this->belongsTo(User::class, 'id', 'therapist_id');
+        return $this->belongsTo(User::class, 'therapist_id', 'id');
     }
 
     public function patient()

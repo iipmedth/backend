@@ -87,6 +87,6 @@ class TherapistController extends Controller
     public function patients()
     {
       $user_id = Auth::user()->id;
-      return Therapist_of_patient::where('therapist_id','=', $user_id)->get()->patient;
+      return Therapist_of_patient::with('patient')->where("therapist_id","=",$user_id)->get();
     }
 }
