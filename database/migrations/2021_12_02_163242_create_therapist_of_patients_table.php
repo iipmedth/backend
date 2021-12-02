@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePatientsFromTherapistTable extends Migration
+class CreateTherapistOfPatientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePatientsFromTherapistTable extends Migration
      */
     public function up()
     {
-        Schema::create('patients_from_therapist', function (Blueprint $table) {
+        Schema::create('therapist_of_patients', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('therapist_id');
             $table->unsignedBigInteger('patient_id');
@@ -31,12 +31,12 @@ class CreatePatientsFromTherapistTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('patients_from_therapist');
+        Schema::dropIfExists('therapist_of_patients');
 
-        Schema::table('patients_from_therapist', function($table)
+        Schema::table('therapist_of_patients', function($table)
         {
-            $table->dropForeign('patients_from_therapist_therapist_id_foreign');
-            $table->dropForeign('patients_from_therapist_patient_id_foreign');
+            $table->dropForeign('therapist_of_patients_therapist_id_foreign');
+            $table->dropForeign('therapist_of_patients_patient_id_foreign');
         });
     }
 }

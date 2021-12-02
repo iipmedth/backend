@@ -65,6 +65,7 @@ class PatientController extends Controller
     {
         $patient = Patient::findOrFail($id);
 
+        $patient->user_id = $request->get('user_id');
         $patient->name = $request->get('name');
         $patient->gender = $request->get('gender');
         $patient->date_of_birth = $request->get('date_of_birth');

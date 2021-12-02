@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PatientController;
 use App\http\Controllers\MeasureController;
+use App\http\Controllers\TherapistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResources([
       'patients' => PatientController::class,
       'measures' => MeasureController::class,
-      'therapist' => TherapistController::class,
+      'therapists' => TherapistController::class,
     ]);
 });

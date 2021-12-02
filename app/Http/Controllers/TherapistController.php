@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Patient_from_therapist;
+use App\Models\Therapist_of_patient;
 use Illuminate\Support\Facades\Auth;
 
 class TherapistController extends Controller
@@ -15,9 +15,9 @@ class TherapistController extends Controller
      */
     public function index()
     {
-      $patients_from_therapist = Patient_from_therapist::all();
+      $therapist_of_patients = Therapist_of_patient::all();
 
-      return response()->json($patients_from_therapist);
+      return response()->json($therapist_of_patients);
     }
 
     /**
@@ -28,14 +28,14 @@ class TherapistController extends Controller
      */
     public function store(Request $request)
     {
-      $newPatient_from_therapist = new Patient_from_therapist([
+      $newTherapist_of_patient = new Therapist_of_patient([
         'therapist_id' => $request->get('therapist_id'),
         'patient_id' => $request->get('patient_id'),
       ]);
 
-      $newPatient_from_therapist->save();
+      $newTherapist_of_patient->save();
 
-      return response()->json($newPatient_from_therapist);
+      return response()->json($newTherapist_of_patient);
     }
 
     /**
@@ -46,9 +46,9 @@ class TherapistController extends Controller
      */
     public function show($id)
     {
-      $patient_from_therapist = Patient_from_therapist::findOrFail($id);
+      $therapist_of_patient = Therapist_of_patient::findOrFail($id);
 
-      return response()->json($patient_from_therapist);
+      return response()->json($therapist_of_patient);
     }
 
     /**
@@ -60,14 +60,14 @@ class TherapistController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $patient_from_therapist = Patient_from_therapist::findOrFail($id);
+      $therapist_of_patient = Therapist_of_patient::findOrFail($id);
 
-      $patient_from_therapist->therapist_id= $request->get('therapist_id');
-      $patient_from_therapist->gender = $request->get('therapist_id');
+      $therapist_of_patient->therapist_id= $request->get('therapist_id');
+      $therapist_of_patient->patient_id = $request->get('patient_id');
 
-      $patient_from_therapist->save();
+      $therapist_of_patient->save();
 
-      return response()->json($patient_from_therapist);
+      return response()->json($therapist_of_patient);
     }
 
     /**
@@ -78,14 +78,15 @@ class TherapistController extends Controller
      */
     public function destroy($id)
     {
-      $patient_from_therapist = Patient_from_therapist::findOrFail($id);
-      $patient_from_therapist->delete();
+      $therapist_of_patient = Therapist_of_patient::findOrFail($id);
+      $therapist_of_patient->delete();
 
-      return response()->json($patient_from_therapist::all());
+      return response()->json($therapist_of_patient::all());
     }
 
     public function patients()
     {
-      return Patient_from_therapist::where(Auth::user()->id)->patients;
+      $user_id = Auth::user()->id;
+      return Therapist_of_patient::find($user_id)->patient;
     }
 }
