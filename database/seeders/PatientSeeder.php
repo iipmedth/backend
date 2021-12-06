@@ -14,44 +14,46 @@ class PatientSeeder extends Seeder
     public function run()
     {
       DB::table('patients')->insert([
+        'user_id' => 2,
         'name' => 'Maikel de Boer',
         'gender' => 'men',
         'date_of_birth' => '1973-04-12',
-        'instrument' => 'Viool',
-      ]);
-
-      DB::table('patients')->insert([
+        'instrument' => 'viool',
+      ],
+      [
+        'user_id' => 3,
         'name' => 'Martin Bergsma',
         'gender' => 'men',
         'date_of_birth' => '1965-03-23',
-        'instrument' => 'Bas',
-      ]);
-
-      DB::table('patients')->insert([
+        'instrument' => 'bas',
+      ],
+      [
+        'user_id' => 4,
         'name' => 'Roy van der Veen',
         'gender' => 'men',
         'date_of_birth' => '1969-05-10',
-        'instrument' => 'Harp',
-      ]);
-
-      DB::table('patients')->insert([
+        'instrument' => 'harp',
+      ],
+      [
+        'user_id' => 5,
         'name' => 'Sandra Nieuwenhuizen',
         'gender' => 'women',
         'date_of_birth' => '1989-11-21',
-        'instrument' => 'Viool',
-      ]);
-
-      DB::table('patients')->insert([
+        'instrument' => 'viool',
+      ],
+      [
+        'user_id' => 6,
         'name' => 'Keetje van der Vorst',
         'gender' => 'women',
         'date_of_birth' => '1955-10-24',
-        'instrument' => 'Gitaar',
-      ]);
-
-      DB::table('patients')->insert([
+        'instrument' => 'gitaar',
+      ],
+      [
+        'user_id' => 7,
         'name' => 'Bridget Ouwehand',
         'gender' => 'women',
         'date_of_birth' => '1990-02-02',
-        'instrument' => 'Piano',
+        'instrument' => 'piano',
+      ]);
     }
 }

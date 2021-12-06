@@ -18,44 +18,38 @@ class UserSeeder extends Seeder
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'therapist',
-      ]);
-
-      DB::table('users')->insert([
+      ],
+      [
         'name' => 'Maikel de Boer',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
-      ]);
-
-      DB::table('users')->insert([
+      ],
+      [
         'name' => 'Martin Bergsma',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
-      ]);
-
-      DB::table('users')->insert([
+      ],
+      [
         'name' => 'Roy van der Veen',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
-      ]);
-
-      DB::table('users')->insert([
+      ],
+      [
         'name' => 'Sandra Nieuwenhuizen',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
-      ]);
-
-      DB::table('users')->insert([
+      ],
+      [
         'name' => 'Keetje van der Vorst',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
-      ]);
-
-      DB::table('users')->insert([
+      ],
+      [
         'name' => 'Bridget Ouwehand',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
