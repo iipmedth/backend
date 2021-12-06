@@ -19,24 +19,29 @@ class TherapistOfPatientSeeder extends Seeder
       DB::table('therapist_of_patients')->insert([
         'therapist_id' => 1,
         'patient_id' => 1,
-      ],
-      [
+      ]);
+
+      DB::table('therapist_of_patients')->insert([
         'therapist_id' => 1,
         'patient_id' => 2,
-      ],
-      [
+      ]);
+
+      DB::table('therapist_of_patients')->insert([
         'therapist_id' => 1,
         'patient_id' => 3,
-      ],
-      [
+      ]);
+
+      DB::table('therapist_of_patients')->insert([
         'therapist_id' => 1,
         'patient_id' => 4,
-      ],
-      [
+      ]);
+
+      DB::table('therapist_of_patients')->insert([
         'therapist_id' => 1,
         'patient_id' => 5,
-      ],
-      [
+      ]);
+
+      DB::table('therapist_of_patients')->insert([
         'therapist_id' => 1,
         'patient_id' => 6,
       ]);
