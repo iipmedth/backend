@@ -14,49 +14,49 @@ class UserSeeder extends Seeder
     public function run()
     {
       DB::table('users')->insert([
-        'name' => Str::random(10),
+        'name' => 'Pim van der Vlugt',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'therapist',
       ]);
 
       DB::table('users')->insert([
-        'name' => Str::random(10),
+        'name' => 'Maikel de Boer',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
       ]);
 
       DB::table('users')->insert([
-        'name' => Str::random(10),
+        'name' => 'Martin Bergsma',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
       ]);
 
       DB::table('users')->insert([
-        'name' => Str::random(10),
+        'name' => 'Roy van der Veen',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
       ]);
 
       DB::table('users')->insert([
-        'name' => Str::random(10),
+        'name' => 'Sandra Nieuwenhuizen',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
       ]);
 
       DB::table('users')->insert([
-        'name' => Str::random(10),
+        'name' => 'Keetje van der Vorst',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
       ]);
 
       DB::table('users')->insert([
-        'name' => Str::random(10),
+        'name' => 'Bridget Ouwehand',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
