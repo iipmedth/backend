@@ -66,16 +66,7 @@ class PatientSeeder extends Seeder
 
       DB::table('patients')->insert([
         'user_id' => 8,
-        'name' => 'Mannelijke Testdata',
-        'gender' => 'male',
-        'date_of_birth' => '2021-01-01',
       ]);
 
-      DB::table('patients')->insert([
-        'user_id' => 9,
-        'name' => 'Vrouwelijke Testdata',
-        'gender' => 'female',
-        'date_of_birth' => '2021-01-01',
-      ]);
     }
 }

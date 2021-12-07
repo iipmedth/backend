@@ -65,17 +65,11 @@ class UserSeeder extends Seeder
       ]);
 
       DB::table('users')->insert([
-        'name' => 'Mannelijke testdata',
+        'name' => 'Test Data',
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
         'role' => 'patient',
       ]);
 
-      DB::table('users')->insert([
-        'name' => 'Vrouwelijke testdata',
-        'email' => Str::random(10).'@gmail.com',
-        'password' => Hash::make('password'),
-        'role' => 'patient',
-      ]);
     }
 }
