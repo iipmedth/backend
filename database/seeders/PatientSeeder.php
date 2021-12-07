@@ -19,7 +19,7 @@ class PatientSeeder extends Seeder
       DB::table('patients')->insert([
         'user_id' => 2,
         'name' => 'Maikel de Boer',
-        'gender' => 'men',
+        'gender' => 'male',
         'date_of_birth' => '1973-04-12',
         'instrument' => 'viool',
       ]);
@@ -27,7 +27,7 @@ class PatientSeeder extends Seeder
       DB::table('patients')->insert([
         'user_id' => 3,
         'name' => 'Martin Bergsma',
-        'gender' => 'men',
+        'gender' => 'male',
         'date_of_birth' => '1965-03-23',
         'instrument' => 'bas',
       ]);
@@ -35,7 +35,7 @@ class PatientSeeder extends Seeder
       DB::table('patients')->insert([
         'user_id' => 4,
         'name' => 'Roy van der Veen',
-        'gender' => 'men',
+        'gender' => 'male',
         'date_of_birth' => '1969-05-10',
         'instrument' => 'harp',
       ]);
@@ -43,7 +43,7 @@ class PatientSeeder extends Seeder
       DB::table('patients')->insert([
         'user_id' => 5,
         'name' => 'Sandra Nieuwenhuizen',
-        'gender' => 'women',
+        'gender' => 'female',
         'date_of_birth' => '1989-11-21',
         'instrument' => 'viool',
       ]);
@@ -51,7 +51,7 @@ class PatientSeeder extends Seeder
       DB::table('patients')->insert([
         'user_id' => 6,
         'name' => 'Keetje van der Vorst',
-        'gender' => 'women',
+        'gender' => 'female',
         'date_of_birth' => '1955-10-24',
         'instrument' => 'gitaar',
       ]);
@@ -59,9 +59,23 @@ class PatientSeeder extends Seeder
       DB::table('patients')->insert([
         'user_id' => 7,
         'name' => 'Bridget Ouwehand',
-        'gender' => 'women',
+        'gender' => 'female',
         'date_of_birth' => '1990-02-02',
         'instrument' => 'piano',
+      ]);
+
+      DB::table('patients')->insert([
+        'user_id' => 8,
+        'name' => 'Mannelijke Testdata',
+        'gender' => 'male',
+        'date_of_birth' => '2021-01-01',
+      ]);
+
+      DB::table('patients')->insert([
+        'user_id' => 9,
+        'name' => 'Vrouwelijke Testdata',
+        'gender' => 'female',
+        'date_of_birth' => '2021-01-01',
       ]);
     }
 }
