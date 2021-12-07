@@ -36,16 +36,16 @@ class MeasureController extends Controller
         'hand_breadth' => $request->get('hand_breadth'),
         'height_difference_1_3' => $request->get('height_difference_1_3'),
         'height_difference_3_5' => $request->get('height_difference_3_5'),
-        'spread_1_2' => $request->get('spread_1_2'),
-        'spread_1_3' => $request->get('spread_1_3'),
-        'spread_1_4' => $request->get('spread_1_4'),
-        'spread_1_5' => $request->get('spread_1_5'),
-        'spread_2_3' => $request->get('spread_2_3'),
-        'spread_2_4' => $request->get('spread_2_4'),
-        'spread_2_5' => $request->get('spread_2_5'),
-        'spread_3_4' => $request->get('spread_3_4'),
-        'spread_3_5' => $request->get('spread_3_5'),
-        'spread_4_5' => $request->get('spread_4_5'),
+        'span_1_2' => $request->get('span_1_2'),
+        'span_1_3' => $request->get('span_1_3'),
+        'span_1_4' => $request->get('span_1_4'),
+        'span_1_5' => $request->get('span_1_5'),
+        'span_2_3' => $request->get('span_2_3'),
+        'span_2_4' => $request->get('span_2_4'),
+        'span_2_5' => $request->get('span_2_5'),
+        'span_3_4' => $request->get('span_3_4'),
+        'span_3_5' => $request->get('span_3_5'),
+        'span_4_5' => $request->get('span_4_5'),
       ]);
 
       $newMeasure->save();
@@ -83,16 +83,16 @@ class MeasureController extends Controller
       $measure->hand_breadth = $request->get('hand_breadth');
       $measure->height_difference_1_3 = $request->get('height_difference_1_3');
       $measure->height_difference_3_5 = $request->get('height_difference_3_5');
-      $measure->spread_1_2 = $request->get('spread_1_2');
-      $measure->spread_1_3 = $request->get('spread_1_3');
-      $measure->spread_1_4 = $request->get('spread_1_4');
-      $measure->spread_1_5 = $request->get('spread_1_5');
-      $measure->spread_2_3 = $request->get('spread_2_3');
-      $measure->spread_2_4 = $request->get('spread_2_4');
-      $measure->spread_2_5 = $request->get('spread_2_5');
-      $measure->spread_3_4 = $request->get('spread_3_4');
-      $measure->spread_3_5 = $request->get('spread_3_5');
-      $measure->spread_4_5 = $request->get('spread_4_5');
+      $measure->span_1_2 = $request->get('span_1_2');
+      $measure->span_1_3 = $request->get('span_1_3');
+      $measure->span_1_4 = $request->get('span_1_4');
+      $measure->span_1_5 = $request->get('span_1_5');
+      $measure->span_2_3 = $request->get('span_2_3');
+      $measure->span_2_4 = $request->get('span_2_4');
+      $measure->span_2_5 = $request->get('span_2_5');
+      $measure->span_3_4 = $request->get('span_3_4');
+      $measure->span_3_5 = $request->get('span_3_5');
+      $measure->span_4_5 = $request->get('span_4_5');
 
       $measure->save();
 
