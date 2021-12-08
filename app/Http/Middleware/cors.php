@@ -17,7 +17,7 @@ class cors
 
      public function handle($request, Closure $next){
       $allowedOrigins = ['http://localhost:3000', 'https://ipmedth-groep4-web.herokuapp.com'];
-      $origin = $_SERVER['HTTP_ORIGIN'];
+      $origin = $_SERVER['HTTP_REFERER'];
 
       if (in_array($origin, $allowedOrigins)) {
           return $next($request)
