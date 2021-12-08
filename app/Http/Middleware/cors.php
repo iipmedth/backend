@@ -19,7 +19,7 @@ class cors
       $allowedOrigins = ['http://localhost:3000', 'https://ipmedth-groep4-web.herokuapp.com'];
 
       if($request->server('HTTP_ORIGIN')){
-        if ($request->server('HTTP_ORIGIN'), $allowedOrigins)) {
+        if (in_array($request->server('HTTP_ORIGIN'), $allowedOrigins)) {
             return $next($request)
                 ->header('Access-Control-Allow-Origin', $request->server('HTTP_ORIGIN'))
                 ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
