@@ -112,4 +112,13 @@ class MeasureController extends Controller
 
       return response()->json($measure::all());
     }
+
+    public function percentiles($patient_id, $hand)
+    {
+      $array = Measure::select('hand_length')->sortBy('hand_length')->get();
+      dd($array);
+      $value = Measure::select('hand_length')->where('patient_id', '=', $patient_id)->where('hand', '=', $hand)->first();
+
+
+    }
 }
