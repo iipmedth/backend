@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('user/patient', [\App\Http\Controllers\AuthController::class, 'patient']);
     Route::get('therapist/patients', [\App\Http\Controllers\TherapistController::class, 'patients']);
     Route::get('patient/{id}/measure/{hand}', [\App\Http\Controllers\PatientController::class, 'measure']);
+    Route::get('percentiles/{patient_id}/{hand}', [\App\Http\Controllers\MeasureController::class, 'percentiles']);
     Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 
     Route::apiResources([
