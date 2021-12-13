@@ -113,6 +113,13 @@ class MeasureController extends Controller
       return response()->json($measure::all());
     }
 
+    public function totalMeasures($patient_id, $hand){
+      $measure = Measure::where('patient_id', '=', $patient_id)->where('hand', '=', $hand)->first();
+      $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
+
+      return $total;
+    }
+
     public function percentiles($patient_id, $hand)
     {
       $measure = Measure::where('patient_id', '=', $patient_id)->where('hand', '=', $hand)->first();
