@@ -124,59 +124,59 @@ class MeasureController extends Controller
     {
       $measure = Measure::where('patient_id', '=', $patient_id)->where('hand', '=', $hand)->first();
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('hand_length', '<', $measure->hand_length)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('hand_length', '<=', $measure->hand_length)->count();
       $percentile1 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('hand_breadth', '<', $measure->hand_breadth)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('hand_breadth', '<=', $measure->hand_breadth)->count();
       $percentile2 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('height_difference_1_3', '<', $measure->height_difference_1_3)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('height_difference_1_3', '<=', $measure->height_difference_1_3)->count();
       $percentile3 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('height_difference_3_5', '<', $measure->height_difference_3_5)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('height_difference_3_5', '<=', $measure->height_difference_3_5)->count();
       $percentile4 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_1_2', '<', $measure->span_1_2)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_1_2', '<=', $measure->span_1_2)->count();
       $percentile5 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_1_3', '<', $measure->span_1_3)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_1_3', '<=', $measure->span_1_3)->count();
       $percentile6 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_1_4', '<', $measure->span_1_4)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_1_4', '<=', $measure->span_1_4)->count();
       $percentile7 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_1_5', '<', $measure->span_1_5)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_1_5', '<=', $measure->span_1_5)->count();
       $percentile8 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_2_3', '<', $measure->span_2_3)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_2_3', '<=', $measure->span_2_3)->count();
       $percentile9 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_2_4', '<', $measure->span_2_4)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_2_4', '<=', $measure->span_2_4)->count();
       $percentile10 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_2_5', '<', $measure->span_2_5)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_2_5', '<=', $measure->span_2_5)->count();
       $percentile11 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_3_4', '<', $measure->span_3_4)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_3_4', '<=', $measure->span_3_4)->count();
       $percentile12 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_3_5', '<', $measure->span_3_5)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_3_5', '<=', $measure->span_3_5)->count();
       $percentile13 = round($index / $total * 100, 0);
 
       $total = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->count();
-      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_4_5', '<', $measure->span_4_5)->count();
+      $index = Measure::where('hand', '=', $hand)->where('gender', '=', $measure->gender)->where('span_4_5', '<=', $measure->span_4_5)->count();
       $percentile14 = round($index / $total * 100, 0);
 
       return response()->json([
