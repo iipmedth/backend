@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:3000', 'https://ipmedth-groep4-web.herokuapp.com', 'https://ipmedth-groep4-web.herokuapp.com'],
+    'allowed_origins' => ['http://localhost:3000', 'https://ipmedth-groep4-web.herokuapp.com', 'http://ipmedth-groep4-web.herokuapp.com'],
 
     'allowed_origins_patterns' => [],
 
