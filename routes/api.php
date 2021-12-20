@@ -18,10 +18,10 @@ use App\http\Controllers\TherapistController;
 */
 
 Route::post('register', [\App\Http\Controllers\AuthController::class, 'register'])->name('register');
-Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
+Route::post('login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
+    Route::get('user', [\App\Http\Controllers\AuthController::class, 'user'])->name('user');
     Route::get('user/patient', [\App\Http\Controllers\AuthController::class, 'patient']);
     Route::get('therapist/patients', [\App\Http\Controllers\TherapistController::class, 'patients']);
     Route::get('patient/{id}/measure/{hand}', [\App\Http\Controllers\PatientController::class, 'measure']);

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -22,19 +23,27 @@ class UserApiTest extends TestCase
               "role" => "patient"
         ];
 
-        $this->withoutExceptionHandling();
-
         $this->json('POST',route('register'),$formData)->assertStatus(201)->assertJson($formData);
     }
 
-    public function test_can_login_user()
+    // public function test_can_login_user()
+    // {
+    //     $formData = [
+    //           "email" => "test1@gmail.com",
+    //           "password" => "password"
+    //     ];
+    //
+    //     $this->withoutExceptionHandling();
+    //
+    //     $this->json('POST',route('login'),$formData)->assertStatus(201)->assertJson($formData);
+    // }
+
+    public function test_can_show_user()
     {
-        $formData = [
-              "email" => "test1@gmail.com",
-        ];
+        $user = User::factory()->create();
 
-        $this->withoutExceptionHandling();
+        $this->actingAs($user);
 
-        $this->json('POST',route('login'),$formData)->assertStatus(201)->assertJson($formData);
+        $this->get(route('user'))->assertStatus(200);
     }
 }
