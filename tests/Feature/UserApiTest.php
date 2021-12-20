@@ -20,23 +20,30 @@ class UserApiTest extends TestCase
         $formData = [
               "name" => "test",
               "email" => "test1@gmail.com",
+              "password" => "password",
               "role" => "patient"
         ];
 
-        $this->json('POST',route('register'),$formData)->assertStatus(201)->assertJson($formData);
+        $this->json('POST',route('register'),$formData)->assertStatus(201)->assertJson([
+              "name" => "test",
+              "email" => "test1@gmail.com",
+              "role" => "patient"
+        ]);
     }
 
-    // public function test_can_login_user()
-    // {
-    //     $formData = [
-    //           "email" => "test1@gmail.com",
-    //           "password" => "password"
-    //     ];
-    //
-    //     $this->withoutExceptionHandling();
-    //
-    //     $this->json('POST',route('login'),$formData)->assertStatus(201)->assertJson($formData);
-    // }
+    public function test_can_login_user()
+    {
+        $user = User::factory()->create();
+
+        $this->actingAs($user);
+
+        $formData = [
+              "email" => $user->email,
+              "password" => 'password'
+        ];
+
+        $this->json('POST',route('login'),$formData)->assertStatus(200)->assertJson(["message" => "Success"]);
+    }
 
     public function test_can_show_user()
     {
