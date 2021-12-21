@@ -22,12 +22,12 @@ Route::post('login', [\App\Http\Controllers\AuthController::class, 'login'])->na
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [\App\Http\Controllers\AuthController::class, 'user'])->name('user');
-    Route::get('user/patient', [\App\Http\Controllers\AuthController::class, 'patient']);
-    Route::get('therapist/patients', [\App\Http\Controllers\TherapistController::class, 'patients']);
-    Route::get('patient/{id}/measure/{hand}', [\App\Http\Controllers\PatientController::class, 'measure']);
-    Route::get('measure/percentiles/{patient_id}/{hand}', [\App\Http\Controllers\MeasureController::class, 'percentiles']);
-    Route::get('measure/count/{patient_id}/{hand}', [\App\Http\Controllers\MeasureController::class, 'totalMeasures']);
-    Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
+    Route::get('user/patient', [\App\Http\Controllers\AuthController::class, 'patient'])->name('patient');
+    Route::get('therapist/patients', [\App\Http\Controllers\TherapistController::class, 'patients'])->name('patients');
+    Route::get('patient/{id}/measure/{hand}', [\App\Http\Controllers\PatientController::class, 'measure'])->name('measure');
+    Route::get('measure/percentiles/{patient_id}/{hand}', [\App\Http\Controllers\MeasureController::class, 'percentiles'])->name('percentiles');
+    Route::get('measure/count/{patient_id}/{hand}', [\App\Http\Controllers\MeasureController::class, 'totalMeasures'])->name('totalMeasures');
+    Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 
     Route::apiResources([
       'patients' => PatientController::class,
