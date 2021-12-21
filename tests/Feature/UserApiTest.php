@@ -10,6 +10,8 @@ use Tests\TestCase;
 class UserApiTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected $user;
     /**
      * A basic feature test example.
      *
@@ -19,9 +21,9 @@ class UserApiTest extends TestCase
      public function setUp():void{
        parent::setUp();
 
-       $user = User::factory()->create();
+       $this->user = User::factory()->create();
 
-       $this->actingAs($user);
+       $this->actingAs($this->user);
      }
 
     public function test_can_register_user()
@@ -42,12 +44,8 @@ class UserApiTest extends TestCase
 
     public function test_can_login_user()
     {
-        $user = User::factory()->create();
-
-        $this->actingAs($user);
-
         $formData = [
-              "email" => $user->email,
+              "email" => $this->user->email,
               "password" => 'password'
         ];
 
@@ -61,10 +59,6 @@ class UserApiTest extends TestCase
 
     public function test_can_show_user()
     {
-        $user = User::factory()->create();
-
-        $this->actingAs($user);
-
         $this->get(route('user'))->assertStatus(200);
     }
 }

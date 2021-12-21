@@ -17,9 +17,9 @@ class PatientFactory extends Factory
          return [
            'user_id' => User::inRandomOrder()->first()->id,
            'name' => $this->faker->name(),
-           'gender' => 'male',
-           'date_of_birth' => '01-01-1980',
-           'instrument' => 'viool',
+           'gender' => $this->faker->randomElement(['male', 'female']),
+           'date_of_birth' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
+           'instrument' => $this->faker->randomElement(['viool', 'piano', 'gitaar', 'harp']),
          ];
      }
 }

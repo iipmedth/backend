@@ -19,7 +19,7 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'password' => Hash::make('password'),
-            'role' => 'therapist',
+            'role' => $this->faker->randomElement(['therapist', 'patient']),
         ];
     }
 
