@@ -35,7 +35,9 @@ class UserApiTest extends TestCase
               "role" => "patient"
         ];
 
-        $this->json('POST',route('register'),$formData)->assertStatus(201)->assertJson([
+        $this->json('POST',route('register'),$formData)
+        ->assertStatus(201)
+        ->assertJson([
               "name" => "test",
               "email" => "test1@gmail.com",
               "role" => "patient"
@@ -49,16 +51,24 @@ class UserApiTest extends TestCase
               "password" => 'password'
         ];
 
-        $this->json('POST',route('login'),$formData)->assertStatus(200)->assertJson(["message" => "Success"]);
+        $this->json('POST',route('login'),$formData)
+        ->assertStatus(200)
+        ->assertJson(["message" => "Success"]);
     }
 
     public function test_can_logout_user()
     {
-        $this->json('POST',route('logout'))->assertStatus(200)->assertJson(["message" => "Success"]);
+        $this->json('POST',route('logout'))
+        ->assertStatus(200)
+        ->assertJson(["message" => "Success"]);
     }
 
     public function test_can_show_user()
     {
-        $this->get(route('user'))->assertStatus(200);
+        $this->get(route('user'))
+        ->assertStatus(200)
+        ->assertJson(
+          $this->user->toArray()
+        );
     }
 }

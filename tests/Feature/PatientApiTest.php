@@ -34,13 +34,21 @@ class PatientApiTest extends TestCase
        $this->patient->measures()->save($this->measure);
      }
 
-     public function test_can_show_patient_measure()
-     {
-        $this->get(route('measure', ["id"=>$this->patient->id, "hand"=>$this->measure->hand]))->assertStatus(200);
-     }
-
      public function test_can_show_patient()
      {
-        $this->get(route('patient'))->assertStatus(200);
+        $this->get(route('patient'))
+        ->assertStatus(200)
+        ->assertJson(
+          $this->patient->toArray()
+        );
+     }
+
+     public function test_can_show_patient_measure()
+     {
+        $this->get(route('measure', ["id"=>$this->patient->id, "hand"=>$this->measure->hand]))
+        ->assertStatus(200)
+        ->assertJson(
+          $this->measure->toArray()
+        );
      }
 }
