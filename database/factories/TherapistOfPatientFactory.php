@@ -8,32 +8,16 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TherapistOfPatientFactory extends Factory
 {
-  use RefreshDatabase;
-  protected $user;
-  protected $therapist_of_patient;
-  protected $patients;
   /**
-   * A basic feature test example.
+   * Define the model's default state.
    *
-   * @return void
+   * @return array
    */
-
-   public function setUp():void{
-     parent::setUp();
-
-     $this->user = User::factory()->create();
-     $this->patients = Patient::factory()->create();
-     $this->therapist_of_patient = TherapistOfPatient::factory()->create();
-
-     $this->actingAs($this->user);
-
-     $this->therapist_of_patient->therapist->save($this->patient);
-     $this->therapist_of_patient->patient->save($this->patient);
-   }
-
-   public function test_can_show_therapist_of_patients()
+   public function definition()
    {
-      $this->get(route('patients'))->assertStatus(200);
+       return [
+         'therapist_id' => User::inRandomOrder()->first()->id,
+         'patient_id' => Patient::inRandomOrder()->first()->id,
+       ];
    }
-
 }
