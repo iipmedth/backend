@@ -31,7 +31,7 @@ class TherapistOfPatientFactory extends Factory
      $this->therapist_of_patient->patient->save($this->patient);
    }
 
-   public function test_can_show_therapist_of_patients()
+   public function test_can_show_therapist_of_patients() 
    {
       $this->get(route('measure', ["id"=>$this->patient->id, "hand"=>$this->measure->hand]))->assertStatus(200);
    }
