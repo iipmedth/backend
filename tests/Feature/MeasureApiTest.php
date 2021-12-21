@@ -39,8 +39,8 @@ class MeasureApiTest extends TestCase
          $this->get(route('totalMeasures', ["patient_id"=>$this->measures[0]->patient_id, "hand"=>$this->measures[0]->hand]))->assertStatus(200);
       }
 
-      // public function test_can_show_patient()
-      // {
-      //    $this->get(route('patient'))->assertStatus(200);
-      // }
+      public function test_can_show_percentiles()
+      {
+         $this->get(route('percentiles', ["patient_id"=>$this->measures[0]->patient_id, "hand"=>$this->measures[0]->hand]))->assertStatus(200);
+      }
 }
