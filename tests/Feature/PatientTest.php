@@ -43,13 +43,13 @@ class PatientTest extends TestCase
      //
      //     $this->json('POST',route('login'),$formData)->assertStatus(200)->assertJson(["message" => "Success"]);
      // }
-
-     public function test_can_show_patient()
-     {
-        $patient = Patient::factory()->create();
-
-        $this->user->patient()->save($patient);
-
-        $this->get(route('patient.show', $patient->id))->assertStatus(200);
-     }
+     // 
+     // public function test_can_show_patient()
+     // {
+     //    $patient = Patient::factory()->create();
+     //
+     //    $this->user->patient()->save($patient);
+     //
+     //    $this->get(route('patient.show', $patient->id))->assertStatus(200);
+     // }
 }

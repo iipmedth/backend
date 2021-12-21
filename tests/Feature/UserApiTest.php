@@ -15,6 +15,15 @@ class UserApiTest extends TestCase
      *
      * @return void
      */
+
+     public function setUp():void{
+       parent::setUp();
+
+       $user = User::factory()->create();
+
+       $this->actingAs($user);
+     }
+
     public function test_can_register_user()
     {
         $formData = [
@@ -43,6 +52,11 @@ class UserApiTest extends TestCase
         ];
 
         $this->json('POST',route('login'),$formData)->assertStatus(200)->assertJson(["message" => "Success"]);
+    }
+
+    public function test_can_logout_user()
+    {
+        $this->json('POST',route('logout'))->assertStatus(200)->assertJson(["message" => "Success"]);
     }
 
     public function test_can_show_user()
