@@ -33,6 +33,15 @@ class TherapistOfPatientApiTest extends TestCase
 
    public function test_can_show_therapist_of_patients()
    {
-      $this->get(route('patients'))->assertStatus(200);
+      $this->get(route('patients'))
+      ->assertStatus(200)
+      ->assertJsonStructure([[
+        "id",
+        "therapist_id",
+        "patient_id",
+        "created_at",
+        "updated_at",
+        "patient" => ["id", "user_id", "name", "gender", "date_of_birth", "instrument", "created_at", "updated_at"],
+      ]]);
    }
 }
