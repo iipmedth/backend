@@ -21,7 +21,12 @@ class PatientTest extends TestCase
 
        $user = User::factory()->create();
 
+       $patient = Patient::factory()->create();
+
        $this->actingAs($user);
+
+       $user->patient()->save($patient);
+
      }
 
      // public function test_can_register_user()

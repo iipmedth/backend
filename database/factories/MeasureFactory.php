@@ -2,16 +2,17 @@
 
 namespace Database\Factories;
 
+use App\Models\Patient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MeasureFactory extends Factory
 {
 
-  function nrand($mean, $sd){
-      $x = mt_rand()/mt_getrandmax();
-      $y = mt_rand()/mt_getrandmax();
-      return sqrt(-2*log($x))*cos(2*pi()*$y)*$sd + $mean;
-  }
+    function nrand($mean, $sd){
+        $x = mt_rand()/mt_getrandmax();
+        $y = mt_rand()/mt_getrandmax();
+        return sqrt(-2*log($x))*cos(2*pi()*$y)*$sd + $mean;
+    }
     /**
      * Define the model's default state.
      *
@@ -20,7 +21,7 @@ class MeasureFactory extends Factory
     public function definition()
     {
         return [
-          'patient_id' => 1,
+          'patient_id' => Patient::inRandomOrder()->first()->id,
           'hand' => 'right',
           'gender' => 'male',
           'hand_length' => nrand(198.5, 8.5),
