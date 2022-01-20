@@ -14,12 +14,20 @@ class cors
      * @param  \Closure  $next
      * @return mixed
      */
-     public function handle($request, Closure $next) {
 
-       return $next($request)
-         ->header('Access-Control-Allow-Origin', 'http://localhost:3000')
-         ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
-         ->header('Access-Control-Allow-Headers',' Origin, Content-Type, Accept, Authorization, X-Request-With')
-         ->header('Access-Control-Allow-Credentials',' true');
-     }
+     public function handle($request, Closure $next){
+      $allowedOrigins = ['http://localhost:3000', 'https://ipmedth-groep4-web.herokuapp.com', 'http://ipmedth-groep4-web.herokuapp.com'];
+
+      if($request->server('HTTP_ORIGIN')){
+        if (in_array($request->server('HTTP_ORIGIN'), $allowedOrigins)) {
+            return $next($request)
+                ->header('Access-Control-Allow-Origin', $request->server('HTTP_ORIGIN'))
+                ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+                ->header('Access-Control-Allow-Headers', 'Content-Type')
+                ->header('Access-Control-Allow-Credentials', 'true');
+        }
+      }
+
+      return $next($request);
+    }
 }

@@ -63,5 +63,13 @@ class UserSeeder extends Seeder
         'password' => Hash::make('password'),
         'role' => 'patient',
       ]);
+
+      DB::table('users')->insert([
+        'name' => 'Test Data',
+        'email' => Str::random(10).'@gmail.com',
+        'password' => Hash::make('password'),
+        'role' => 'patient',
+      ]);
+
     }
 }
